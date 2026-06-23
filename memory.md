@@ -81,6 +81,14 @@ Potential tools:
 - Use `localStorage` only for optional device-local preferences or progress
 - Keep the site printable and usable on school laptops, tablets and phones
 
+## Brand direction
+
+- Revision Lab should feel unmistakably connected to James Gillespie's High School while remaining fun, uplifting and contemporary.
+- Use the school crest as the primary institutional anchor, paired with a compact Revision Lab wordmark rather than treating the crest as background decoration.
+- Build the core palette from the crest: burgundy, heraldic gold, warm paper and dark ink. Avoid unrelated primary-brand colours such as generic product blue.
+- Use the school motto, *Fidelis et Fortis*, sparingly as a quiet signature rather than a repeated slogan.
+- The visual language may borrow from practical lab sheets, annotations and study materials, but should remain calm, age-appropriate and accessible rather than childish or heavily gamified.
+
 ## Current status
 
 - Local repository created.
