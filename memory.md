@@ -88,6 +88,32 @@ The resource should accurately explain and apply:
 
 Rereading, highlighting and copying notes should not be described as entirely useless. The important distinction is that they are usually weak as standalone revision strategies because they do not reliably require retrieval or application.
 
+### Key sources
+
+**Retrieval practice / testing effect**
+Roediger & Karpicke (2006) — *The Power of Testing Memory* — showed that repeated retrieval produces substantially stronger long-term retention than repeated re-reading, and that students are typically unaware of this advantage. Effect holds across age groups, subjects and materials.
+
+**Utility ratings of learning strategies**
+Dunlosky, Rawson, Marsh, Nathan & Willingham (2013) — *Improving Students' Learning with Effective Learning Techniques* (Psychological Science in the Public Interest) — rated 10 common strategies. Practice testing and distributed practice were rated high utility; rereading and highlighting were rated low utility. Became a benchmark reference for evidence-informed revision guidance.
+
+**Spaced / distributed practice**
+Cepeda, Pashler, Vul, Wixted & Rohrer (2006) — meta-analysis of 317 experiments — confirmed that spreading study over multiple sessions substantially improves retention compared to massed (cramming) practice, with optimal gaps depending on how long material needs to be retained.
+
+**Desirable difficulties**
+Bjork (1994); Bjork & Bjork (2011) — introduced the concept that conditions which slow initial learning (spacing, interleaving, retrieval) can increase long-term retention precisely because the extra effort required strengthens memory storage strength. Partial forgetting before a retrieval attempt produces larger memory gains than re-studying material that is still fresh.
+
+**Interleaving**
+Rohrer & Taylor (2010); Rohrer, Dedrick & Stershic (2015) — demonstrated that mixing problem types during practice (interleaving) rather than blocking by topic can double test scores, with benefits over and above those explained by spacing alone.
+
+**Metacognition and self-regulated learning**
+Flavell (1979) — foundational metacognition framework: plan, monitor, evaluate. Zimmerman — self-regulated learners set goals, apply strategies and self-reflect. Education Endowment Foundation guidance report: metacognitive strategies are associated with approximately seven months' additional progress.
+
+**The fluency illusion**
+Bjork & Bjork (2011) — smooth processing (rereading familiar notes) feels like understanding but is not retrieval. This illusion of knowing causes students and families to mistake recognition for durable recall.
+
+**Parental involvement**
+Patall, Cooper & Robinson (2008) — review found the strongest effects on achievement from parental *expectations and aspirations*, not from active homework help. For secondary-age pupils, autonomy matters; controlling or monitoring homework can undermine motivation. Mixed results for direct homework assistance.
+
 ## Initial content direction
 
 Potential learning modules:
