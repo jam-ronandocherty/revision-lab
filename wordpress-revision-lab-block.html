@@ -1,0 +1,148 @@
+<!-- Paste everything in this file into a WordPress “Custom HTML” block. -->
+<style>
+  .revision-lab-invite,
+  .revision-lab-invite * {
+    box-sizing: border-box;
+  }
+
+  .revision-lab-invite {
+    --rl-paper: #fff9e8;
+    --rl-ink: #211a16;
+    --rl-muted: #665d54;
+    --rl-burgundy: #a70020;
+    --rl-gold: #f3c700;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: center;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    overflow: hidden;
+    border: 1px solid var(--rl-ink);
+    background:
+      linear-gradient(90deg, rgba(33, 26, 22, 0.055) 1px, transparent 1px) 0 0 / 72px 100%,
+      var(--rl-paper);
+    color: var(--rl-ink);
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 10px 10px 0 var(--rl-burgundy);
+  }
+
+  .revision-lab-invite::after {
+    position: absolute;
+    top: -40px;
+    right: -38px;
+    width: 118px;
+    height: 118px;
+    border: 17px solid var(--rl-gold);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+  }
+
+  .revision-lab-invite__label {
+    display: inline-block;
+    margin: 0 0 0.8rem;
+    padding: 0.28rem 0.48rem;
+    background: var(--rl-gold);
+    color: var(--rl-ink);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .revision-lab-invite h2 {
+    margin: 0;
+    color: var(--rl-ink);
+    font-size: clamp(2rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+  }
+
+  .revision-lab-invite h2 em {
+    color: var(--rl-burgundy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+  }
+
+  .revision-lab-invite__copy {
+    max-width: 650px;
+    margin: 1rem 0 0;
+    color: var(--rl-muted);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.6;
+  }
+
+  .revision-lab-invite__link {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    min-width: 210px;
+    padding: 1rem 1.2rem;
+    background: var(--rl-burgundy);
+    color: #fff !important;
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none !important;
+    box-shadow: 6px 6px 0 var(--rl-gold);
+    transition: transform 140ms ease, box-shadow 140ms ease;
+  }
+
+  .revision-lab-invite__link:hover {
+    color: #fff !important;
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--rl-gold);
+  }
+
+  .revision-lab-invite__link:focus-visible {
+    outline: 3px solid var(--rl-ink);
+    outline-offset: 5px;
+  }
+
+  @media (max-width: 700px) {
+    .revision-lab-invite {
+      grid-template-columns: 1fr;
+      margin-right: 10px;
+    }
+
+    .revision-lab-invite__link {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .revision-lab-invite__link {
+      transition: none;
+    }
+  }
+</style>
+
+<aside class="revision-lab-invite" aria-labelledby="revision-lab-invite-title">
+  <div>
+    <p class="revision-lab-invite__label">JGHS Revision Lab</p>
+    <h2 id="revision-lab-invite-title">Make revision <em>stick.</em></h2>
+    <p class="revision-lab-invite__copy">
+      Learn what works, try it for yourself and build revision habits you can actually keep.
+    </p>
+  </div>
+
+  <a
+    class="revision-lab-invite__link"
+    href="https://revision-lab.pages.dev/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Open Revision Lab in a new tab"
+  >
+    Explore Revision Lab <span aria-hidden="true">→</span>
+  </a>
+</aside>

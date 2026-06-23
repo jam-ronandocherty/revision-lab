@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Try a five-minute retrieval practice experiment with Revision Lab.">
+  <title>Can you remember it without looking? — Revision Lab</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body class="module-page">
+  <header class="site-header">
+    <a class="school-brand" href="index.html" aria-label="Revision Lab home">
+      <img src="assets/jghs-crest.png" alt="" width="300" height="255">
+      <span class="school-brand__copy">
+        <strong>Revision Lab</strong>
+        <small>James Gillespie's High School</small>
+      </span>
+    </a>
+    <div class="header-actions">
+      <a class="header-back" href="index.html"><span aria-hidden="true">←</span> Home</a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">Dark mode</button>
+    </div>
+  </header>
+
+  <main class="module" id="module">
+    <aside class="module-rail" aria-label="Module progress">
+      <p class="module-rail__time">About 5 minutes</p>
+      <ol class="module-progress">
+        <li data-progress-step="study"><span>01</span>Study</li>
+        <li data-progress-step="retrieve"><span>02</span>Retrieve</li>
+        <li data-progress-step="check"><span>03</span>Check</li>
+        <li data-progress-step="fix"><span>04</span>Fix</li>
+        <li data-progress-step="retry"><span>05</span>Retry</li>
+        <li data-progress-step="return"><span>06</span>Return</li>
+      </ol>
+      <p class="module-rail__note">Your answers stay on this page and are not sent or saved.</p>
+    </aside>
+
+    <div class="experiment" aria-live="polite">
+      <section class="module-screen is-active" data-screen="intro" aria-labelledby="module-title">
+        <p class="experiment-number">Experiment 01 / Retrieval practice</p>
+        <h1 id="module-title">Can you remember it <em>without looking?</em></h1>
+        <p class="module-lead">You are about to learn three linked ideas, hide them, and pull them back from memory. The small struggle is the useful part.</p>
+
+        <div class="experiment-setup">
+          <div>
+            <span aria-hidden="true">1</span>
+            <p><strong>Study</strong> a short explanation.</p>
+          </div>
+          <div>
+            <span aria-hidden="true">2</span>
+            <p><strong>Hide it</strong> and write what you remember.</p>
+          </div>
+          <div>
+            <span aria-hidden="true">3</span>
+            <p><strong>Check and retry</strong> before you finish.</p>
+          </div>
+        </div>
+
+        <div class="module-action-row">
+          <button class="module-button module-button--primary" type="button" data-action="start">Start the experiment <span aria-hidden="true">→</span></button>
+          <p>No marks. No trick questions. Just an honest first attempt.</p>
+        </div>
+      </section>
+
+      <section class="module-screen" data-screen="study" aria-labelledby="study-title" hidden>
+        <p class="screen-step">01 — Study</p>
+        <h2 id="study-title">Read for meaning, not just the words.</h2>
+        <p class="screen-intro">Look for the chain of cause and effect. You can move on when the ideas make sense.</p>
+
+        <article class="study-sheet">
+          <p class="study-sheet__question">Why can a metal bench feel colder than a wooden one?</p>
+          <p>The metal and wood may be at <strong>the same room temperature</strong>.</p>
+          <p>Metal is a better <strong>conductor</strong>, so heat moves out of your hand and into the metal more quickly.</p>
+          <p>Your skin senses this faster loss of heat, so the metal <strong>feels colder</strong> even when it is not at a lower temperature.</p>
+        </article>
+
+        <div class="study-timer" aria-label="Suggested study time">
+          <span>Suggested study time</span>
+          <strong data-study-timer>25</strong>
+          <span>seconds</span>
+          <div class="study-timer__track" aria-hidden="true"><span data-timer-bar></span></div>
+        </div>
+
+        <button class="module-button module-button--primary" type="button" data-action="hide">Hide it and retrieve <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="module-screen" data-screen="retrieve" aria-labelledby="retrieve-title" hidden>
+        <p class="screen-step">02 — Retrieve</p>
+        <h2 id="retrieve-title">Why can metal feel colder than wood?</h2>
+        <p class="screen-intro">Write everything you can remember. It does not need to be polished; fragments and key words count.</p>
+
+        <label class="answer-field">
+          <span>Your first attempt — no looking back</span>
+          <textarea rows="8" data-first-answer placeholder="Start with: Metal can feel colder because…"></textarea>
+        </label>
+
+        <fieldset class="confidence-field">
+          <legend>Before you check, how complete does your answer feel?</legend>
+          <label><input type="radio" name="confidence" value="not-sure"> <span>Not sure yet</span></label>
+          <label><input type="radio" name="confidence" value="partly"> <span>Partly there</span></label>
+          <label><input type="radio" name="confidence" value="confident"> <span>Confident</span></label>
+        </fieldset>
+
+        <p class="validation-message" data-retrieve-error hidden>Write at least a few words before you check.</p>
+        <button class="module-button module-button--primary" type="button" data-action="check">Check my answer <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="module-screen" data-screen="check" aria-labelledby="check-title" hidden>
+        <p class="screen-step">03 — Check</p>
+        <h2 id="check-title">Look for ideas, not exact wording.</h2>
+        <p class="screen-intro">Compare your answer with each idea below. Tick it only if your answer clearly included it.</p>
+
+        <blockquote class="attempt-copy">
+          <span>Your first attempt</span>
+          <p data-first-answer-copy></p>
+        </blockquote>
+
+        <fieldset class="checklist" data-checklist>
+          <legend class="visually-hidden">Ideas included in your first attempt</legend>
+          <label>
+            <input type="checkbox" value="temperature">
+            <span><strong>Same temperature</strong> — the metal and wood can both be at room temperature.</span>
+          </label>
+          <label>
+            <input type="checkbox" value="conduction">
+            <span><strong>Faster conduction</strong> — metal transfers heat away from your hand more quickly.</span>
+          </label>
+          <label>
+            <input type="checkbox" value="sensation">
+            <span><strong>What you sense</strong> — that faster heat loss makes the metal feel colder.</span>
+          </label>
+        </fieldset>
+
+        <div class="check-result" data-check-result>
+          <strong><span data-check-count>0</span> of 3 ideas found</strong>
+          <p>Finding a gap is useful feedback—not a failure.</p>
+        </div>
+
+        <button class="module-button module-button--primary" type="button" data-action="fix">Fix the gaps <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="module-screen" data-screen="fix" aria-labelledby="fix-title" hidden>
+        <p class="screen-step">04 — Fix</p>
+        <h2 id="fix-title">Repair what was missing.</h2>
+        <p class="screen-intro">The gaps you identified are listed below. Add a short correction in your own words.</p>
+
+        <div class="gap-list" data-gap-list></div>
+
+        <label class="answer-field">
+          <span>My correction</span>
+          <textarea rows="6" data-correction placeholder="The part I need to add is…"></textarea>
+        </label>
+
+        <p class="validation-message" data-fix-error hidden>Add a brief correction before you retry.</p>
+        <button class="module-button module-button--primary" type="button" data-action="retry">Hide the help and retry <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="module-screen" data-screen="retry" aria-labelledby="retry-title" hidden>
+        <p class="screen-step">05 — Retry</p>
+        <h2 id="retry-title">One more time, from memory.</h2>
+        <p class="screen-intro">Explain why metal can feel colder than wood. Try to connect all three ideas in one clear chain.</p>
+
+        <label class="answer-field">
+          <span>Your second attempt</span>
+          <textarea rows="8" data-second-answer placeholder="Metal and wood can be…"></textarea>
+        </label>
+
+        <p class="validation-message" data-retry-error hidden>Write your second attempt before revealing the answer.</p>
+        <button class="module-button module-button--primary" type="button" data-action="reveal">Reveal and compare <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="module-screen" data-screen="compare" aria-labelledby="compare-title" hidden>
+        <p class="screen-step">05 — Retry / Compare</p>
+        <h2 id="compare-title">Did the second attempt improve?</h2>
+        <p class="screen-intro">Check the explanation again. Improvement matters more than getting everything right first time.</p>
+
+        <div class="comparison">
+          <article>
+            <span>Your second attempt</span>
+            <p data-second-answer-copy></p>
+          </article>
+          <article class="comparison__model">
+            <span>A complete explanation</span>
+            <p>Metal and wood can be at the same room temperature. Metal conducts heat away from your hand faster than wood, and your skin senses that faster heat loss. That is why the metal feels colder.</p>
+          </article>
+        </div>
+
+        <fieldset class="retry-rating">
+          <legend>How many of the three ideas are clear in your second attempt?</legend>
+          <label><input type="radio" name="retry-score" value="0"> <span>0</span></label>
+          <label><input type="radio" name="retry-score" value="1"> <span>1</span></label>
+          <label><input type="radio" name="retry-score" value="2"> <span>2</span></label>
+          <label><input type="radio" name="retry-score" value="3"> <span>3</span></label>
+        </fieldset>
+
+        <button class="module-button module-button--primary" type="button" data-action="return">Plan when to return <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="module-screen" data-screen="return" aria-labelledby="return-title" hidden>
+        <p class="screen-step">06 — Return</p>
+        <h2 id="return-title">A later retrieval makes the learning work harder.</h2>
+        <p class="screen-intro">Choose a realistic time to explain this again without looking. You do not need to keep practising it now.</p>
+
+        <fieldset class="return-options">
+          <legend>When will you try this again?</legend>
+          <label><input type="radio" name="return-time" value="tomorrow"> <span><strong>Tomorrow</strong><small>Good if this felt difficult</small></span></label>
+          <label><input type="radio" name="return-time" value="three-days"> <span><strong>In 3 days</strong><small>A useful default</small></span></label>
+          <label><input type="radio" name="return-time" value="one-week"> <span><strong>In 1 week</strong><small>Good if recall felt strong</small></span></label>
+        </fieldset>
+
+        <p class="validation-message" data-return-error hidden>Choose a realistic return time before you finish.</p>
+        <button class="module-button module-button--primary" type="button" data-action="finish">Finish the experiment <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="module-screen module-complete" data-screen="complete" aria-labelledby="complete-title" hidden>
+        <p class="experiment-number">Experiment complete</p>
+        <div class="complete-mark" aria-hidden="true">✓</div>
+        <h2 id="complete-title">You did more than reread.</h2>
+        <p class="module-lead">You retrieved, checked, fixed and retried. That sequence turns “I recognise it” into better evidence of what you can actually remember.</p>
+
+        <dl class="experiment-summary">
+          <div><dt>First check</dt><dd><span data-final-first-score>0</span> / 3 ideas</dd></div>
+          <div><dt>Second check</dt><dd><span data-final-second-score>Not rated</span></dd></div>
+          <div><dt>Return</dt><dd><span data-final-return>Choose a time</span></dd></div>
+        </dl>
+
+        <div class="takeaway">
+          <p><strong>The method to take with you</strong></p>
+          <p>Close the book. Try from memory. Check accurately. Repair the gaps. Try again later.</p>
+        </div>
+
+        <div class="complete-actions">
+          <button class="module-button module-button--primary" type="button" data-action="restart">Try the experiment again</button>
+          <a class="module-button module-button--secondary" href="index.html">Back to Revision Lab</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
