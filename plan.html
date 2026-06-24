@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plan a realistic revision week — spread your subjects, schedule short sessions and decide when to return.">
+  <title>Plan your week — Revision Lab</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="school-brand" href="index.html" aria-label="Revision Lab home">
+      <img src="assets/jghs-crest.png" alt="" width="300" height="255">
+      <span class="school-brand__copy">
+        <strong>Revision Lab</strong>
+        <small>James Gillespie's High School</small>
+      </span>
+    </a>
+    <div class="header-actions">
+      <a class="header-back" href="index.html"><span aria-hidden="true">←</span> Home</a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">Dark mode</button>
+    </div>
+  </header>
+
+  <main class="planner-page" id="planner">
+
+    <section class="planner-hero" aria-labelledby="planner-title">
+      <p class="eyebrow">Plan your week</p>
+      <h1 id="planner-title">A small plan <em>beats a big one.</em></h1>
+      <p class="planner-lead">A few short sessions spread across different subjects will do more for your memory than one long session the night before. Add what you plan to revise, then print it or take a photo to keep it with you.</p>
+    </section>
+
+    <section class="planner-tool" aria-labelledby="week-heading">
+
+      <div class="planner-name">
+        <label class="planner-name__label" for="planner-name-input">Your name</label>
+        <input class="planner-name__input" type="text" id="planner-name-input" placeholder="Optional — appears when you print" maxlength="60" autocomplete="name">
+      </div>
+
+      <div class="week-header">
+        <h2 id="week-heading" class="week-title" data-week-title>This week</h2>
+        <div class="week-header-actions">
+          <button class="planner-clear" type="button" data-clear-plan hidden>Clear</button>
+          <button class="planner-print" type="button" data-print>Print / save as PDF</button>
+        </div>
+      </div>
+
+      <div class="week-grid-scroll">
+        <div class="week-grid" data-week-grid aria-label="Revision week planner">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section class="planner-principles" aria-labelledby="principles-title">
+      <p class="section-label">Making the most of your plan</p>
+      <h2 id="principles-title" class="planner-principles__heading">Three things that make a revision week work.</h2>
+      <ol class="plan-tips">
+        <li>
+          <span>01</span>
+          <div>
+            <svg class="plan-tip__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 14 4 4-4 4"/><path d="m18 2 4 4-4 4"/><path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22"/><path d="M2 6h1.972a4 4 0 0 1 3.6 2.2"/></svg>
+            <strong>Spread subjects across days.</strong>
+            <p>Revising different subjects in different sessions — rather than one subject all week — produces stronger long-term recall. This is called interleaving, and it tends to work better even when it feels harder.</p>
+          </div>
+        </li>
+        <li>
+          <span>02</span>
+          <div>
+            <svg class="plan-tip__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <strong>Shorter sessions on more days beat one long one.</strong>
+            <p>A 20-minute session on Monday and another on Thursday will do more for your memory than a single 40-minute session, even though the total time is the same. Short and spread is the aim.</p>
+          </div>
+        </li>
+        <li>
+          <span>03</span>
+          <div>
+            <svg class="plan-tip__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+            <strong>Put at least one topic in your plan twice.</strong>
+            <p>When you revise something and come back to it a day or two later, the memory becomes much harder to lose. Schedule a return visit to anything that felt difficult — with a gap in between.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+  </main>
+</body>
+</html>

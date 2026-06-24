@@ -1065,6 +1065,528 @@ h2[tabindex="-1"]:focus { outline: none; }
   .module-screen { animation: none; }
 }
 
+/* ——— Plan your week ——— */
+
+.planner-page {
+  width: min(1240px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: clamp(3.5rem, 7vw, 6rem) 0 7rem;
+}
+
+.planner-hero {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.planner-hero h1 {
+  max-width: 780px;
+  margin: 0.5rem 0 0;
+  font-size: clamp(3.2rem, 8vw, 6.8rem);
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+}
+
+.planner-hero h1 em {
+  color: var(--burgundy);
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.planner-lead {
+  max-width: 600px;
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  line-height: 1.65;
+}
+
+/* Week header */
+
+.planner-tool { margin-bottom: clamp(4rem, 8vw, 7rem); }
+
+.planner-name {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.planner-name__label {
+  color: var(--muted);
+  font-family: var(--utility);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.planner-name__input {
+  max-width: 340px;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.planner-name__input::placeholder { color: color-mix(in srgb, var(--muted) 50%, transparent); }
+.planner-name__input:focus { border-color: var(--burgundy); outline: none; }
+
+.week-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.week-title {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--utility);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.week-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.planner-clear {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--utility);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.planner-clear:hover { color: var(--burgundy); }
+
+.planner-print {
+  padding: 0.52rem 0.85rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  font-family: var(--utility);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.planner-print:hover { background: var(--burgundy); border-color: var(--burgundy); }
+
+/* Week grid */
+
+.week-grid-scroll { overflow-x: auto; }
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(150px, 1fr));
+  min-width: 800px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  gap: 1px;
+  box-shadow: 10px 10px 0 var(--burgundy);
+}
+
+.day-col {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  min-height: 280px;
+}
+
+.day-col--today { background: color-mix(in srgb, var(--gold) 9%, var(--surface)); }
+
+.day-col__header {
+  padding: 0.9rem 0.9rem 0.8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.day-col--today .day-col__header { border-bottom: 3px solid var(--gold); }
+
+.day-name {
+  display: block;
+  color: var(--muted);
+  font-family: var(--utility);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.day-col--today .day-name { color: var(--burgundy-deep); }
+
+.day-date {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.day-today {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.15rem 0.35rem;
+  background: var(--gold);
+  color: #211a16;
+  font-family: var(--utility);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* Session list */
+
+.day-sessions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0.65rem;
+  list-style: none;
+}
+
+.session-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.6rem 0.65rem;
+  border-left: 3px solid var(--burgundy);
+  background: var(--paper);
+}
+
+.session-card__body { display: grid; gap: 0.15rem; min-width: 0; }
+
+.session-subject {
+  overflow: hidden;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.session-duration {
+  color: var(--muted);
+  font-family: var(--utility);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.session-remove {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1.05rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.session-remove:hover { color: var(--burgundy); }
+
+/* Add session button */
+
+.add-session-btn {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 0;
+  border-top: 1px dashed var(--line);
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--utility);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.add-session-btn:hover {
+  color: var(--burgundy-deep);
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+}
+
+/* Add session form */
+
+.add-session-form {
+  padding: 0.75rem 0.85rem 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.add-session-label {
+  display: grid;
+  gap: 0.3rem;
+  margin-bottom: 0.65rem;
+}
+
+.add-session-label > span {
+  color: var(--muted);
+  font-family: var(--utility);
+  font-size: 0.57rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.subject-input {
+  width: 100%;
+  padding: 0.42rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.subject-input::placeholder { color: color-mix(in srgb, var(--muted) 55%, transparent); }
+.subject-input:focus { border-color: var(--burgundy); outline: none; box-shadow: none; }
+
+.duration-picker {
+  display: flex;
+  gap: 0.3rem;
+  margin: 0 0 0.7rem;
+  padding: 0;
+  border: 0;
+}
+
+.duration-picker label { position: relative; cursor: pointer; }
+.duration-picker input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.duration-picker span {
+  display: grid;
+  place-items: center;
+  min-width: 42px;
+  padding: 0.3rem 0.35rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: var(--utility);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.duration-picker input:checked + span {
+  border-color: var(--burgundy);
+  background: var(--burgundy);
+  color: #fff;
+}
+
+.duration-picker input:focus-visible + span {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.add-session-actions {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.add-session-submit {
+  flex: 1;
+  padding: 0.42rem 0.6rem;
+  border: 1px solid var(--burgundy);
+  background: var(--burgundy);
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--utility);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.add-session-cancel {
+  padding: 0.42rem 0.55rem;
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--utility);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Principles */
+
+.planner-principles {
+  padding-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--line);
+}
+
+.planner-principles__heading {
+  max-width: 640px;
+  margin: 0.5rem 0 2.5rem;
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+.plan-tips {
+  margin: 0 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-tips > li {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0 1.5rem;
+  align-items: start;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.plan-tips > li:last-child { border-bottom: 1px solid var(--line); }
+
+.plan-tips > li > span {
+  padding-top: 0.2rem;
+  color: var(--burgundy-deep);
+  font-family: var(--utility);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.plan-tips strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 1.02rem;
+  letter-spacing: -0.025em;
+}
+
+.plan-tips p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.62;
+}
+
+.plan-tip__icon {
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin-bottom: 0.85rem;
+  color: var(--burgundy);
+}
+
+@media (max-width: 560px) {
+  .planner-page { width: min(100% - 2rem, 1240px); }
+  .plan-tips > li { grid-template-columns: 1.8rem 1fr; gap: 0 1rem; }
+  .planner-name { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  .planner-name__input { max-width: 100%; width: 100%; }
+}
+
+@media print {
+  @page { size: A4 landscape; margin: 1.5cm; }
+
+  body { background: #fff !important; color: #000 !important; }
+
+  .site-header {
+    width: 100% !important;
+    padding: 0.6rem 0 0.8rem !important;
+    border-bottom: 1px solid #000 !important;
+  }
+
+  .school-brand img { filter: none !important; }
+  .header-actions { display: none !important; }
+
+  .planner-hero,
+  .planner-principles { display: none !important; }
+
+  .planner-page { width: 100% !important; padding: 0.75rem 0 0 !important; }
+
+  .planner-name { margin-bottom: 0.6rem; }
+
+  .planner-name__label {
+    color: #666;
+    font-size: 0.6rem;
+  }
+
+  .planner-name__input {
+    border: none;
+    border-bottom: 1px solid #aaa;
+    background: transparent !important;
+    padding: 0.1rem 0;
+    font-size: 1.05rem;
+    font-weight: 800;
+    max-width: none;
+    width: auto;
+    min-width: 180px;
+    color: #000 !important;
+  }
+
+  .week-header { margin-bottom: 0.6rem; }
+  .week-title { color: #666 !important; font-size: 0.65rem; }
+  .week-header-actions { display: none !important; }
+
+  .week-grid-scroll { overflow: visible !important; }
+
+  .week-grid {
+    min-width: 0 !important;
+    width: 100% !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    box-shadow: none !important;
+    background: #000 !important;
+  }
+
+  .day-col { background: #fff !important; min-height: 90px !important; }
+  .day-col--today { background: #fffde6 !important; }
+  .day-col__header { padding: 0.5rem 0.65rem 0.4rem !important; }
+  .day-col--today .day-col__header { border-bottom: 2px solid #f3c700 !important; }
+  .day-name { color: #777 !important; font-size: 0.55rem !important; }
+  .day-col--today .day-name { color: #a70020 !important; }
+  .day-date { font-size: 1.2rem !important; color: #000 !important; }
+  .day-today { background: #f3c700 !important; color: #211a16 !important; font-size: 0.52rem !important; }
+
+  .day-sessions { padding: 0.35rem 0.45rem !important; gap: 0.25rem !important; }
+  .session-card {
+    border-left: 2px solid #a70020 !important;
+    background: #fff !important;
+    padding: 0.3rem 0.4rem !important;
+  }
+  .session-subject { font-size: 0.7rem !important; color: #000 !important; }
+  .session-duration { font-size: 0.52rem !important; color: #666 !important; }
+  .session-remove { display: none !important; }
+
+  .add-session-btn,
+  .add-session-form { display: none !important; }
+}
+
 /* ——— For families ——— */
 
 .families {
@@ -1093,6 +1615,15 @@ h2[tabindex="-1"]:focus { outline: none; }
   font-weight: 600;
   letter-spacing: -0.035em;
 }
+
+.hero-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+}
+
+.hero-links .families-link { margin-top: 0; }
 
 .families-link {
   display: inline-block;

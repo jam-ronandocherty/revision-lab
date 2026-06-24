@@ -235,3 +235,177 @@ if (moduleElement) {
 
   checklist.addEventListener('change', updateCheckScore);
 }
+
+/* ——— Plan your week ——— */
+
+const plannerEl = document.querySelector('#planner');
+
+if (plannerEl) {
+  const DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const DAY_SHORT = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+  function getWeekDates() {
+    const today = new Date();
+    const day = today.getDay();
+    const offset = day === 0 ? 6 : day - 1;
+    const monday = new Date(today);
+    monday.setDate(today.getDate() - offset);
+    monday.setHours(0, 0, 0, 0);
+    return Array.from({ length: 7 }, (_, i) => {
+      const d = new Date(monday);
+      d.setDate(monday.getDate() + i);
+      return d;
+    });
+  }
+
+  function todayDayIndex() {
+    const day = new Date().getDay();
+    return day === 0 ? 6 : day - 1;
+  }
+
+
+  function createSessionCard(session) {
+    const li = document.createElement('li');
+    li.className = 'session-card';
+    li.dataset.sessionId = session.id;
+
+    const body = document.createElement('div');
+    body.className = 'session-card__body';
+
+    const subjectEl = document.createElement('span');
+    subjectEl.className = 'session-subject';
+    subjectEl.textContent = session.subject;
+
+    const durationEl = document.createElement('span');
+    durationEl.className = 'session-duration';
+    durationEl.textContent = `${session.duration} min`;
+
+    body.append(subjectEl, durationEl);
+
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'session-remove';
+    removeBtn.type = 'button';
+    removeBtn.setAttribute('aria-label', `Remove ${session.subject}`);
+    removeBtn.dataset.remove = session.id;
+    removeBtn.textContent = '×';
+
+    li.append(body, removeBtn);
+    return li;
+  }
+
+  function dayColHTML(date, dayIndex, isToday) {
+    const todayBadge = isToday ? '<span class="day-today">Today</span>' : '';
+    const dayLabel = DAY_NAMES[dayIndex];
+    return `<div class="day-col${isToday ? ' day-col--today' : ''}" aria-label="${dayLabel}, ${date.getDate()}">
+      <div class="day-col__header">
+        <span class="day-name">${DAY_SHORT[dayIndex]}</span>
+        <span class="day-date">${date.getDate()}</span>
+        ${todayBadge}
+      </div>
+      <ul class="day-sessions" aria-label="Sessions for ${dayLabel}"></ul>
+      <button class="add-session-btn" type="button" data-add="${dayIndex}">+ Add session</button>
+      <form class="add-session-form" data-day-form="${dayIndex}" hidden>
+        <label class="add-session-label">
+          <span>Subject</span>
+          <input class="subject-input" type="text" placeholder="e.g. Chemistry" maxlength="40" autocomplete="off">
+        </label>
+        <fieldset class="duration-picker" aria-label="Session length">
+          <label><input type="radio" name="dur-${dayIndex}" value="5"> <span>5 min</span></label>
+          <label><input type="radio" name="dur-${dayIndex}" value="15" checked> <span>15 min</span></label>
+          <label><input type="radio" name="dur-${dayIndex}" value="30"> <span>30 min</span></label>
+        </fieldset>
+        <div class="add-session-actions">
+          <button class="add-session-submit" type="submit">Add</button>
+          <button class="add-session-cancel" type="button" data-cancel="${dayIndex}">Cancel</button>
+        </div>
+      </form>
+    </div>`;
+  }
+
+  const dates = getWeekDates();
+  let sessions = [];
+
+  function renderWeek() {
+    const grid = plannerEl.querySelector('[data-week-grid]');
+    const weekTitle = plannerEl.querySelector('[data-week-title]');
+    const clearBtn = plannerEl.querySelector('[data-clear-plan]');
+    const today = todayDayIndex();
+
+    const monthFmt = new Intl.DateTimeFormat('en-GB', { month: 'long' });
+    const first = dates[0];
+    const last = dates[6];
+    const title = first.getMonth() === last.getMonth()
+      ? `${first.getDate()}–${last.getDate()} ${monthFmt.format(first)} ${first.getFullYear()}`
+      : `${first.getDate()} ${monthFmt.format(first)} – ${last.getDate()} ${monthFmt.format(last)} ${last.getFullYear()}`;
+    weekTitle.textContent = title;
+
+    grid.innerHTML = dates.map((date, i) => dayColHTML(date, i, i === today)).join('');
+
+    dates.forEach((_, dayIndex) => {
+      const list = grid.querySelectorAll('.day-sessions')[dayIndex];
+      sessions.filter(s => s.dayIndex === dayIndex).forEach(s => list.appendChild(createSessionCard(s)));
+    });
+
+    clearBtn.hidden = sessions.length === 0;
+  }
+
+  plannerEl.addEventListener('click', (e) => {
+    const addBtn = e.target.closest('[data-add]');
+    if (addBtn) {
+      const dayIndex = addBtn.dataset.add;
+      const form = plannerEl.querySelector(`[data-day-form="${dayIndex}"]`);
+      addBtn.hidden = true;
+      form.hidden = false;
+      form.querySelector('.subject-input').focus();
+      return;
+    }
+
+    const cancelBtn = e.target.closest('[data-cancel]');
+    if (cancelBtn) {
+      const dayIndex = cancelBtn.dataset.cancel;
+      const form = plannerEl.querySelector(`[data-day-form="${dayIndex}"]`);
+      const addBtn = plannerEl.querySelector(`[data-add="${dayIndex}"]`);
+      form.hidden = true;
+      addBtn.hidden = false;
+      addBtn.focus();
+      return;
+    }
+
+    const removeBtn = e.target.closest('[data-remove]');
+    if (removeBtn) {
+      sessions = sessions.filter(s => s.id !== removeBtn.dataset.remove);
+      renderWeek();
+      return;
+    }
+
+    if (e.target.closest('[data-clear-plan]')) {
+      sessions = [];
+      renderWeek();
+      return;
+    }
+
+    if (e.target.closest('[data-print]')) {
+      window.print();
+    }
+  });
+
+  plannerEl.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target.closest('[data-day-form]');
+    if (!form) return;
+
+    const dayIndex = Number(form.dataset.dayForm);
+    const subject = form.querySelector('.subject-input').value.trim();
+    if (!subject) {
+      form.querySelector('.subject-input').focus();
+      return;
+    }
+
+    const duration = Number(form.querySelector(`input[name="dur-${dayIndex}"]:checked`)?.value ?? 15);
+    const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+    sessions.push({ id, dayIndex, subject, duration });
+    renderWeek();
+  });
+
+  renderWeek();
+}
