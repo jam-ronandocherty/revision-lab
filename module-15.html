@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A 15-minute retrieval session using your own notes — retrieve, fix gaps, and plan when to come back.">
+  <title>Retrieve, fix and plan — Revision Lab</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+  <script src="assets/module-15.js" defer></script>
+</head>
+<body class="module-page">
+  <header class="site-header">
+    <a class="school-brand" href="index.html" aria-label="Revision Lab home">
+      <img src="assets/jghs-crest.png" alt="" width="300" height="255">
+      <span class="school-brand__copy">
+        <strong>Revision Lab</strong>
+        <small>James Gillespie's High School</small>
+      </span>
+    </a>
+    <div class="header-actions">
+      <a class="header-back" href="index.html"><span aria-hidden="true">←</span> Home</a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">Dark mode</button>
+    </div>
+  </header>
+
+  <main class="module" id="module-15">
+    <aside class="module-rail" aria-label="Module progress">
+      <p class="module-rail__time">About 15 minutes</p>
+      <ol class="module-progress module-progress--seven">
+        <li data-progress-step="setup"><span>01</span>Setup</li>
+        <li data-progress-step="study"><span>02</span>Study</li>
+        <li data-progress-step="retrieve"><span>03</span>Retrieve</li>
+        <li data-progress-step="check"><span>04</span>Check</li>
+        <li data-progress-step="fix"><span>05</span>Fix</li>
+        <li data-progress-step="retry"><span>06</span>Retry</li>
+        <li data-progress-step="plan"><span>07</span>Plan</li>
+      </ol>
+      <p class="module-rail__note">Your answers stay on this page and are not sent or saved.</p>
+    </aside>
+
+    <div class="experiment" aria-live="polite">
+
+      <!-- Intro -->
+      <section class="module-screen is-active" data-screen="intro" aria-labelledby="m15-title">
+        <p class="experiment-number">15-minute session / Retrieval practice</p>
+        <h1 id="m15-title">Retrieve, fix <em>and plan.</em></h1>
+        <p class="module-lead">You bring the content. You write down what you know, hide it, pull it back from memory, repair what was missing, and schedule when to come back. Any subject. Any topic.</p>
+
+        <div class="experiment-setup">
+          <div>
+            <span aria-hidden="true">1</span>
+            <p><strong>Write</strong> 3–5 key ideas from your notes in your own words.</p>
+          </div>
+          <div>
+            <span aria-hidden="true">2</span>
+            <p><strong>Retrieve</strong> them from memory, check what you got, and fix the gaps.</p>
+          </div>
+          <div>
+            <span aria-hidden="true">3</span>
+            <p><strong>Plan</strong> when to return — spacing the retrieval is what makes the learning last.</p>
+          </div>
+        </div>
+
+        <div class="module-action-row">
+          <button class="module-button module-button--primary" type="button" data-action="to-setup">Set up the session <span aria-hidden="true">→</span></button>
+          <p>No marks. No trick questions. Your notes stay on this page.</p>
+        </div>
+      </section>
+
+      <!-- Setup -->
+      <section class="module-screen" data-screen="setup" aria-labelledby="setup-title" hidden>
+        <p class="screen-step">01 — Setup</p>
+        <h2 id="setup-title">What are you <em>revising?</em></h2>
+        <p class="screen-intro">Write 3–5 key ideas from your notes in your own words — not copied directly. Short phrases are fine. These become your study material for this session.</p>
+
+        <div class="setup-fields">
+          <div class="chooser-field">
+            <label class="chooser-label" for="m15-topic">
+              Topic <span class="chooser-optional">(optional)</span>
+            </label>
+            <input class="chooser-input" type="text" id="m15-topic"
+              placeholder="e.g. Higher Biology — cell division"
+              maxlength="80" autocomplete="off">
+          </div>
+        </div>
+
+        <label class="answer-field">
+          <span>Your key ideas — one per line</span>
+          <textarea rows="9" data-ideas-input placeholder="e.g. Mitosis produces two identical daughter cells&#10;The cell cycle has three stages: interphase, mitosis and cytokinesis&#10;Chromosomes must be duplicated before division begins"></textarea>
+        </label>
+
+        <p class="setup-hint">Aim for 3–5 ideas. Start with the ones you find hardest to remember.</p>
+
+        <p class="validation-message" data-setup-error hidden>Write at least two ideas before you start.</p>
+        <button class="module-button module-button--primary" type="button" data-action="to-study">Study them <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Study -->
+      <section class="module-screen" data-screen="study" aria-labelledby="study-title" hidden>
+        <p class="screen-step">02 — Study</p>
+        <h2 id="study-title">Read for meaning, <em>not just the words.</em></h2>
+        <p class="screen-intro">Look for how the ideas connect. You can move on when the structure makes sense — not just when the words look familiar.</p>
+
+        <article class="study-sheet">
+          <p class="study-sheet__question" data-study-topic>Your key ideas</p>
+          <ul data-ideas-list></ul>
+        </article>
+
+        <div class="study-timer" aria-label="Suggested study time">
+          <span>Suggested study time</span>
+          <strong data-study-timer>90</strong>
+          <span>seconds</span>
+          <div class="study-timer__track" aria-hidden="true"><span data-timer-bar></span></div>
+        </div>
+
+        <button class="module-button module-button--primary" type="button" data-action="to-retrieve">Hide and retrieve <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Retrieve -->
+      <section class="module-screen" data-screen="retrieve" aria-labelledby="retrieve-title" hidden>
+        <p class="screen-step">03 — Retrieve</p>
+        <h2 id="retrieve-title">Write everything <em>you remember.</em></h2>
+        <p class="screen-intro">Write all the ideas you can recall — no looking back. Fragments and key phrases count. The struggle to retrieve is the useful part.</p>
+
+        <label class="answer-field">
+          <span>Your retrieval attempt — no looking back</span>
+          <textarea rows="9" data-first-answer placeholder="Write everything you can recall from memory…"></textarea>
+        </label>
+
+        <fieldset class="confidence-field">
+          <legend>Before you check, how complete does your answer feel?</legend>
+          <label><input type="radio" name="confidence" value="not-sure"> <span>Not sure yet</span></label>
+          <label><input type="radio" name="confidence" value="partly"> <span>Partly there</span></label>
+          <label><input type="radio" name="confidence" value="confident"> <span>Confident</span></label>
+        </fieldset>
+
+        <p class="validation-message" data-retrieve-error hidden>Write at least a few words before you check.</p>
+        <button class="module-button module-button--primary" type="button" data-action="to-check">Check my attempt <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Check -->
+      <section class="module-screen" data-screen="check" aria-labelledby="check-title" hidden>
+        <p class="screen-step">04 — Check</p>
+        <h2 id="check-title">Look for ideas, <em>not exact wording.</em></h2>
+        <p class="screen-intro">Compare your attempt with each of your key ideas. Tick it only if the idea was clearly there — even if the phrasing is different.</p>
+
+        <blockquote class="attempt-copy">
+          <span>Your retrieval attempt</span>
+          <p data-first-answer-copy></p>
+        </blockquote>
+
+        <fieldset class="checklist" data-ideas-checklist>
+          <legend class="visually-hidden">Ideas included in your retrieval attempt</legend>
+        </fieldset>
+
+        <div class="check-result" data-check-result>
+          <strong><span data-check-count>0</span> of <span data-ideas-total>0</span> ideas found</strong>
+          <p>Finding a gap is useful feedback — not a failure.</p>
+        </div>
+
+        <button class="module-button module-button--primary" type="button" data-action="to-fix">Fix the gaps <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Fix -->
+      <section class="module-screen" data-screen="fix" aria-labelledby="fix-title" hidden>
+        <p class="screen-step">05 — Fix</p>
+        <h2 id="fix-title">Repair <em>what was missing.</em></h2>
+        <p class="screen-intro">The ideas you missed are shown below. Write a brief correction in your own words — this helps fix the gap before you try again.</p>
+
+        <div class="gap-list" data-gap-list></div>
+
+        <label class="answer-field">
+          <span>My correction</span>
+          <textarea rows="5" data-correction placeholder="The ideas I need to add are…"></textarea>
+        </label>
+
+        <p class="validation-message" data-fix-error hidden>Add a brief correction before you retry.</p>
+        <button class="module-button module-button--primary" type="button" data-action="to-retry">Hide the help and retry <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Retry -->
+      <section class="module-screen" data-screen="retry" aria-labelledby="retry-title" hidden>
+        <p class="screen-step">06 — Retry</p>
+        <h2 id="retry-title">One more time, <em>from memory.</em></h2>
+        <p class="screen-intro">Write all your key ideas again without looking — including the ones you fixed. Try to connect them rather than just listing them.</p>
+
+        <label class="answer-field">
+          <span>Your second attempt</span>
+          <textarea rows="9" data-second-answer placeholder="Write all your key ideas again from memory…"></textarea>
+        </label>
+
+        <p class="validation-message" data-retry-error hidden>Write your second attempt before comparing.</p>
+        <button class="module-button module-button--primary" type="button" data-action="to-compare">Reveal and compare <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Compare -->
+      <section class="module-screen" data-screen="compare" aria-labelledby="compare-title" hidden>
+        <p class="screen-step">06 — Retry / Compare</p>
+        <h2 id="compare-title">Did the second attempt <em>improve?</em></h2>
+        <p class="screen-intro">Compare your second attempt with your original ideas. Improvement matters more than getting everything right first time.</p>
+
+        <div class="comparison">
+          <article>
+            <span>Your second attempt</span>
+            <p data-second-answer-copy></p>
+          </article>
+          <article class="comparison__model">
+            <span>Your key ideas</span>
+            <ul data-compare-ideas></ul>
+          </article>
+        </div>
+
+        <fieldset class="confidence-field">
+          <legend>Compared to your first attempt, the second feels:</legend>
+          <label><input type="radio" name="improve-rating" value="stronger"> <span>Stronger</span></label>
+          <label><input type="radio" name="improve-rating" value="similar"> <span>About the same</span></label>
+          <label><input type="radio" name="improve-rating" value="gaps"> <span>Still has gaps</span></label>
+        </fieldset>
+
+        <button class="module-button module-button--primary" type="button" data-action="to-plan">Plan when to return <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Plan -->
+      <section class="module-screen" data-screen="plan" aria-labelledby="plan-title" hidden>
+        <p class="screen-step">07 — Plan</p>
+        <h2 id="plan-title">Space out <em>your return.</em></h2>
+        <p class="screen-intro">Retrieving this again after a gap builds stronger memory than re-reading it now. The wait is what makes the learning stick.</p>
+
+        <div class="plan-context">
+          <p><strong>Why spacing works:</strong> when you retrieve something after a short delay, partial forgetting means you have to work harder to recall it. That extra effort strengthens the memory trace more than studying when everything feels fresh.</p>
+          <p>Choose a realistic time and note it in your revision planner so you don't forget.</p>
+        </div>
+
+        <fieldset class="return-options">
+          <legend>When will you try this again?</legend>
+          <label><input type="radio" name="return-time" value="tonight"> <span><strong>Tonight</strong><small>Good if this felt very difficult</small></span></label>
+          <label><input type="radio" name="return-time" value="tomorrow"> <span><strong>Tomorrow</strong><small>Good if ideas were patchy</small></span></label>
+          <label><input type="radio" name="return-time" value="three-days"> <span><strong>In 3 days</strong><small>A useful default</small></span></label>
+          <label><input type="radio" name="return-time" value="one-week"> <span><strong>In 1 week</strong><small>Good if recall felt strong</small></span></label>
+          <label><input type="radio" name="return-time" value="two-weeks"> <span><strong>In 2 weeks</strong><small>Good if you got everything first time</small></span></label>
+        </fieldset>
+
+        <p class="validation-message" data-return-error hidden>Choose a realistic return time before you finish.</p>
+        <button class="module-button module-button--primary" type="button" data-action="finish">Finish the session <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Complete -->
+      <section class="module-screen module-complete" data-screen="complete" aria-labelledby="complete-title" hidden>
+        <p class="experiment-number">Session complete</p>
+        <div class="complete-mark" aria-hidden="true">✓</div>
+        <h2 id="complete-title">You did more than reread.</h2>
+        <p class="module-lead">You retrieved from memory, checked honestly, fixed the gaps, and retried. That sequence turns passive familiarity into evidence of what you can actually recall.</p>
+
+        <dl class="experiment-summary">
+          <div><dt>Topic</dt><dd><span data-final-topic>—</span></dd></div>
+          <div><dt>First check</dt><dd><span data-final-first-score>—</span></dd></div>
+          <div><dt>Return</dt><dd><span data-final-return>—</span></dd></div>
+        </dl>
+
+        <div class="takeaway">
+          <p><strong>The method to take with you</strong></p>
+          <p>Close the book. Write from memory. Check honestly. Fix the gaps. Come back after a gap and do it again.</p>
+        </div>
+
+        <div class="complete-actions">
+          <button class="module-button module-button--primary" type="button" data-action="restart">Try another topic</button>
+          <a class="module-button module-button--secondary" href="plan.html">Plan your revision week <span aria-hidden="true">→</span></a>
+          <a class="module-button module-button--secondary" href="index.html">Back to Revision Lab</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

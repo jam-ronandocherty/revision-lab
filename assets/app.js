@@ -416,6 +416,7 @@ const chooser = document.querySelector('#session-chooser');
 
 if (chooser) {
   const steps = [...chooser.querySelectorAll('[data-step]')];
+  let chosenTime = '5';
 
   function showStep(name) {
     steps.forEach(step => {
@@ -433,13 +434,22 @@ if (chooser) {
   }
 
   chooser.querySelectorAll('[data-time]').forEach(tile => {
-    tile.addEventListener('click', () => showStep('focus'));
+    tile.addEventListener('click', () => {
+      chosenTime = tile.dataset.time;
+      showStep('focus');
+    });
   });
 
   chooser.addEventListener('click', e => {
     const btn = e.target.closest('[data-action]');
     if (!btn) return;
     if (btn.dataset.action === 'back') showStep('time');
-    if (btn.dataset.action === 'begin') window.location.href = 'module.html';
+    if (btn.dataset.action === 'begin') {
+      const subject = chooser.querySelector('#subject-input')?.value.trim() || '';
+      sessionStorage.setItem('rl-subject', subject);
+      sessionStorage.setItem('rl-time', chosenTime);
+      const destinations = { '5': 'module.html', '15': 'module-15.html' };
+      window.location.href = destinations[chosenTime] || 'module.html';
+    }
   });
 }
