@@ -1,6 +1,6 @@
 # Revision Lab — Project Memory
 
-Last updated: 23 June 2026
+Last updated: 24 June 2026
 
 ## Purpose
 
@@ -186,13 +186,19 @@ The core first-release journey is: **learn one effective method, use it in a tim
 - Light and dark themes implemented and tested.
 - Desktop and mobile layouts checked locally.
 - Cloudflare Pages is connected and the production site is live at `https://revision-lab.pages.dev`.
-- The first reference module, **Can you remember it without looking?**, is implemented as a self-contained five-minute retrieval-practice experience. It uses a neutral science explanation to take pupils through Study → Retrieve → Check → Fix → Retry → Return, keeps responses in the current page only and uses honest self-assessment rather than automated keyword marking.
+- All five first-release sections are now built and linked:
+  - **Home** (`index.html`) — hero, lab card, project teaser.
+  - **Start a session** (`start.html`) — two-step chooser: time selection (5 / 15 / 30 min cards; 15 and 30 are "coming soon") then subject and task-type focus-setting before routing to the module.
+  - **Learn the method** (`module.html`) — the complete **Can you remember it without looking?** retrieval-practice module. Uses a neutral science example to walk pupils through Study → Retrieve → Check → Fix → Retry → Return. Responses stay on-page only; honest self-assessment rather than automated marking.
+  - **Plan your week** (`plan.html`) — interactive weekly revision planner; printable.
+  - **For families** (`families.html`) — dual-audience evidence design with practical guidance.
+- Homepage primary CTA and lab card both route through `start.html` as the entry point to the session journey.
 
 ## Immediate next steps
 
-1. Design and build **Can you remember it without looking?** as the complete reference module.
-2. Connect the module to the landing page and timed-session journey.
-3. Test the module with pupils, families and staff before expanding the content library.
+1. Test the full journey (homepage → start → module → plan) with pupils, families and staff.
+2. Build the 15-minute session when there is enough content to fill it.
+3. Expand the content library with a second learning module once the first has been tested.
 
 ## Safeguards
 

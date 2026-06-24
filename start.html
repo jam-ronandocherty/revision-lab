@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Choose how long you have, name what you are revising, and start your revision session.">
+  <title>Start a session — Revision Lab</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="school-brand" href="index.html" aria-label="Revision Lab home">
+      <img src="assets/jghs-crest.png" alt="" width="300" height="255">
+      <span class="school-brand__copy">
+        <strong>Revision Lab</strong>
+        <small>James Gillespie's High School</small>
+      </span>
+    </a>
+    <div class="header-actions">
+      <a class="header-back" href="index.html"><span aria-hidden="true">←</span> Home</a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">Dark mode</button>
+    </div>
+  </header>
+
+  <main class="session-chooser" id="session-chooser" aria-live="polite">
+
+    <section class="chooser-step" data-step="time" aria-labelledby="time-heading">
+      <div class="chooser-intro">
+        <p class="eyebrow"><span aria-hidden="true">01</span> Start a session</p>
+        <h1 id="time-heading">How long <em>have you got?</em></h1>
+        <p class="chooser-lead">Short sessions spread over time build stronger memories than one long session the night before. Choose what fits today.</p>
+      </div>
+
+      <div class="time-grid">
+
+        <button class="time-tile" type="button" data-time="5">
+          <p class="time-tile__label">5 min</p>
+          <strong class="time-tile__name">One retrieval experiment</strong>
+          <p class="time-tile__desc">Study a short explanation, hide it, pull it back from memory, then check and fix your answer.</p>
+          <span class="time-tile__badge time-tile__badge--ready">Ready</span>
+        </button>
+
+        <div class="time-tile time-tile--soon" aria-hidden="true">
+          <p class="time-tile__label">15 min</p>
+          <strong class="time-tile__name">Retrieve, fix and plan</strong>
+          <p class="time-tile__desc">A fuller retrieval session with spaced practice planning and a prompt to schedule your return.</p>
+          <span class="time-tile__badge">Coming soon</span>
+        </div>
+
+        <div class="time-tile time-tile--soon" aria-hidden="true">
+          <p class="time-tile__label">30 min</p>
+          <strong class="time-tile__name">Two topics in one session</strong>
+          <p class="time-tile__desc">Work across two subjects with interleaved retrieval and a plan for what to revisit and when.</p>
+          <span class="time-tile__badge">Coming soon</span>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="chooser-step" data-step="focus" aria-labelledby="focus-heading" hidden>
+      <div class="chooser-intro">
+        <p class="eyebrow"><span aria-hidden="true">02</span> Set your focus</p>
+        <h2 id="focus-heading">What are you <em>revising?</em></h2>
+        <p class="chooser-lead">Naming what you plan to revise before you start helps you stay focused and makes it easier to judge what you have learned afterwards.</p>
+      </div>
+
+      <div class="chooser-fields">
+
+        <div class="chooser-field">
+          <label class="chooser-label" for="subject-input">
+            Subject <span class="chooser-optional">(optional)</span>
+          </label>
+          <input class="chooser-input" type="text" id="subject-input"
+            placeholder="e.g. Higher Chemistry, English, Maths"
+            maxlength="60" autocomplete="off">
+        </div>
+
+        <fieldset class="chooser-fieldset">
+          <legend class="chooser-label">
+            Type of task <span class="chooser-optional">(optional)</span>
+          </legend>
+          <div class="task-grid">
+            <label class="task-option">
+              <input type="radio" name="task-type" value="facts">
+              <span>Facts and vocabulary</span>
+            </label>
+            <label class="task-option">
+              <input type="radio" name="task-type" value="process">
+              <span>A process or method</span>
+            </label>
+            <label class="task-option">
+              <input type="radio" name="task-type" value="questions">
+              <span>Practice questions</span>
+            </label>
+            <label class="task-option">
+              <input type="radio" name="task-type" value="essay">
+              <span>Essay or extended answer</span>
+            </label>
+            <label class="task-option">
+              <input type="radio" name="task-type" value="other">
+              <span>Something else</span>
+            </label>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <div class="chooser-nav">
+        <button class="chooser-back" type="button" data-action="back"><span aria-hidden="true">←</span> Back</button>
+        <button class="module-button module-button--primary" type="button" data-action="begin">Begin the session <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

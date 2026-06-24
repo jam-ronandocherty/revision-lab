@@ -409,3 +409,37 @@ if (plannerEl) {
 
   renderWeek();
 }
+
+/* ——— Start a session ——— */
+
+const chooser = document.querySelector('#session-chooser');
+
+if (chooser) {
+  const steps = [...chooser.querySelectorAll('[data-step]')];
+
+  function showStep(name) {
+    steps.forEach(step => {
+      if (step.dataset.step === name) {
+        step.removeAttribute('hidden');
+        const heading = step.querySelector('h1, h2');
+        if (heading) {
+          heading.setAttribute('tabindex', '-1');
+          heading.focus();
+        }
+      } else {
+        step.setAttribute('hidden', '');
+      }
+    });
+  }
+
+  chooser.querySelectorAll('[data-time]').forEach(tile => {
+    tile.addEventListener('click', () => showStep('focus'));
+  });
+
+  chooser.addEventListener('click', e => {
+    const btn = e.target.closest('[data-action]');
+    if (!btn) return;
+    if (btn.dataset.action === 'back') showStep('time');
+    if (btn.dataset.action === 'begin') window.location.href = 'module.html';
+  });
+}
