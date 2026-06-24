@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A 30-minute retrieval session across two subjects — study both, retrieve together, fix the gaps, and plan when to return.">
+  <title>Two topics, one session — Revision Lab</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+  <script src="assets/module-30.js" defer></script>
+</head>
+<body class="module-page">
+  <header class="site-header">
+    <a class="school-brand" href="index.html" aria-label="Revision Lab home">
+      <img src="assets/jghs-crest.png" alt="" width="300" height="255">
+      <span class="school-brand__copy">
+        <strong>Revision Lab</strong>
+        <small>James Gillespie's High School</small>
+      </span>
+    </a>
+    <div class="header-actions">
+      <a class="header-back" href="index.html"><span aria-hidden="true">←</span> Home</a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">Dark mode</button>
+    </div>
+  </header>
+
+  <main class="module" id="module-30">
+    <aside class="module-rail" aria-label="Module progress">
+      <p class="module-rail__time">About 30 minutes</p>
+      <ol class="module-progress module-progress--eight">
+        <li data-progress-step="setup"><span>01</span>Setup</li>
+        <li data-progress-step="study"><span>02</span>Study</li>
+        <li data-progress-step="retrieve"><span>03</span>Retrieve</li>
+        <li data-progress-step="check-a"><span>04</span>Check A</li>
+        <li data-progress-step="fix-a"><span>05</span>Fix A</li>
+        <li data-progress-step="check-b"><span>06</span>Check B</li>
+        <li data-progress-step="fix-b"><span>07</span>Fix B</li>
+        <li data-progress-step="plan"><span>08</span>Plan</li>
+      </ol>
+      <p class="module-rail__note">Your answers stay on this page and are not sent or saved.</p>
+    </aside>
+
+    <div class="experiment" aria-live="polite">
+
+      <!-- Intro -->
+      <section class="module-screen is-active" data-screen="intro" aria-labelledby="m30-title">
+        <p class="experiment-number">30-minute session / Interleaved retrieval</p>
+        <h1 id="m30-title">Two topics, <em>one session.</em></h1>
+        <p class="module-lead">You enter key ideas for two different subjects, study both, then retrieve them together from a single recall effort. Mixing subjects during retrieval strengthens memory for each one more than studying them in separate sessions.</p>
+
+        <div class="experiment-setup">
+          <div>
+            <span aria-hidden="true">1</span>
+            <p><strong>Set up</strong> 3–5 key ideas for two different topics.</p>
+          </div>
+          <div>
+            <span aria-hidden="true">2</span>
+            <p><strong>Study both,</strong> then retrieve from memory in one attempt.</p>
+          </div>
+          <div>
+            <span aria-hidden="true">3</span>
+            <p><strong>Fix the gaps</strong> per topic and plan when to return to each.</p>
+          </div>
+        </div>
+
+        <div class="module-action-row">
+          <button class="module-button module-button--primary" type="button" data-action="to-setup">Set up the session <span aria-hidden="true">→</span></button>
+          <p>No marks. No trick questions. Your notes stay on this page.</p>
+        </div>
+      </section>
+
+      <!-- Setup -->
+      <section class="module-screen" data-screen="setup" aria-labelledby="setup-title" hidden>
+        <p class="screen-step">01 — Setup</p>
+        <h2 id="setup-title">What are you <em>revising?</em></h2>
+        <p class="screen-intro">Write 3–5 key ideas for each topic in your own words — not copied directly. These become your study material for the session.</p>
+
+        <div class="topic-block">
+          <p class="topic-block__title">Topic A</p>
+          <div class="setup-fields">
+            <div class="chooser-field">
+              <label class="chooser-label" for="m30-topic-a">
+                Subject / topic name <span class="chooser-optional">(optional)</span>
+              </label>
+              <input class="chooser-input" type="text" id="m30-topic-a"
+                placeholder="e.g. Higher Biology — cell division"
+                maxlength="80" autocomplete="off">
+            </div>
+          </div>
+          <label class="answer-field">
+            <span>Key ideas for Topic A — one per line</span>
+            <textarea rows="7" data-ideas-a placeholder="e.g. Mitosis produces two identical daughter cells&#10;The cell cycle has three stages: interphase, mitosis and cytokinesis&#10;Chromosomes must be duplicated before division begins"></textarea>
+          </label>
+        </div>
+
+        <div class="topic-block">
+          <p class="topic-block__title">Topic B</p>
+          <div class="setup-fields">
+            <div class="chooser-field">
+              <label class="chooser-label" for="m30-topic-b">
+                Subject / topic name <span class="chooser-optional">(optional)</span>
+              </label>
+              <input class="chooser-input" type="text" id="m30-topic-b"
+                placeholder="e.g. English — Macbeth themes"
+                maxlength="80" autocomplete="off">
+            </div>
+          </div>
+          <label class="answer-field">
+            <span>Key ideas for Topic B — one per line</span>
+            <textarea rows="7" data-ideas-b placeholder="e.g. Power and ambition drive the central tragedy&#10;Appearance versus reality is a recurring motif&#10;The supernatural influences key decisions"></textarea>
+          </label>
+        </div>
+
+        <p class="setup-hint">Start with the ideas you find hardest to remember for each topic.</p>
+        <p class="validation-message" data-setup-error hidden>Write at least two ideas for each topic before you start.</p>
+        <button class="module-button module-button--primary" type="button" data-action="to-study">Study both topics <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Study -->
+      <section class="module-screen" data-screen="study" aria-labelledby="study-title" hidden>
+        <p class="screen-step">02 — Study</p>
+        <h2 id="study-title">Read for meaning, <em>not just the words.</em></h2>
+        <p class="screen-intro">Look across both topics for how the ideas connect within each one. You can move on when the structure of both makes sense — not just when the words look familiar.</p>
+
+        <div class="study-dual">
+          <article class="study-sheet">
+            <p class="study-sheet__question" data-study-topic-a>Topic A</p>
+            <ul data-ideas-list-a></ul>
+          </article>
+          <article class="study-sheet">
+            <p class="study-sheet__question" data-study-topic-b>Topic B</p>
+            <ul data-ideas-list-b></ul>
+          </article>
+        </div>
+
+        <div class="study-timer" aria-label="Suggested study time">
+          <span>Suggested study time</span>
+          <strong data-study-timer>120</strong>
+          <span>seconds</span>
+          <div class="study-timer__track" aria-hidden="true"><span data-timer-bar></span></div>
+        </div>
+
+        <button class="module-button module-button--primary" type="button" data-action="to-retrieve">Hide both and retrieve <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Retrieve -->
+      <section class="module-screen" data-screen="retrieve" aria-labelledby="retrieve-title" hidden>
+        <p class="screen-step">03 — Retrieve</p>
+        <h2 id="retrieve-title">Write everything <em>you remember.</em></h2>
+        <p class="screen-intro">Write all the ideas you can recall from both topics — no looking back. Mix them up, switch between topics, include fragments. The struggle to retrieve is the useful part.</p>
+
+        <label class="answer-field">
+          <span>Your retrieval attempt — no looking back</span>
+          <textarea rows="12" data-first-answer placeholder="Write everything you can recall from both topics…"></textarea>
+        </label>
+
+        <fieldset class="confidence-field">
+          <legend>Before you check, how complete does your combined answer feel?</legend>
+          <label><input type="radio" name="confidence" value="not-sure"> <span>Not sure yet</span></label>
+          <label><input type="radio" name="confidence" value="partly"> <span>Partly there</span></label>
+          <label><input type="radio" name="confidence" value="confident"> <span>Confident</span></label>
+        </fieldset>
+
+        <p class="validation-message" data-retrieve-error hidden>Write at least a few words before you check.</p>
+        <button class="module-button module-button--primary" type="button" data-action="to-check-a">Check Topic A first <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Check A -->
+      <section class="module-screen" data-screen="check-a" aria-labelledby="check-a-title" hidden>
+        <p class="screen-step">04 — Check / Topic A</p>
+        <h2 id="check-a-title">Which Topic A ideas <em>were in your attempt?</em></h2>
+        <p class="screen-intro">Compare your attempt with each Topic A idea. Tick it only if the idea was clearly there — even if the phrasing is different.</p>
+
+        <blockquote class="attempt-copy">
+          <span>Your retrieval attempt</span>
+          <p data-first-answer-copy-a></p>
+        </blockquote>
+
+        <fieldset class="checklist" data-ideas-checklist-a data-check-group="idea-check-a">
+          <legend class="visually-hidden">Topic A ideas included in your retrieval attempt</legend>
+        </fieldset>
+
+        <div class="check-result" data-check-result-a>
+          <strong><span data-check-count-a>0</span> of <span data-ideas-total-a>0</span> ideas found</strong>
+          <p>Finding a gap is useful feedback — not a failure.</p>
+        </div>
+
+        <button class="module-button module-button--primary" type="button" data-action="to-fix-a">Fix Topic A gaps <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Fix A -->
+      <section class="module-screen" data-screen="fix-a" aria-labelledby="fix-a-title" hidden>
+        <p class="screen-step">05 — Fix / Topic A</p>
+        <h2 id="fix-a-title">Repair what was <em>missing from Topic A.</em></h2>
+        <p class="screen-intro">The Topic A ideas you missed are shown below. Write a brief correction in your own words before moving on to Topic B.</p>
+
+        <div class="gap-list" data-gap-list-a></div>
+
+        <label class="answer-field">
+          <span>My Topic A correction</span>
+          <textarea rows="5" data-correction-a placeholder="The Topic A ideas I need to add are…"></textarea>
+        </label>
+
+        <p class="validation-message" data-fix-a-error hidden>Add a brief correction before you move on.</p>
+        <button class="module-button module-button--primary" type="button" data-action="to-check-b">Now check Topic B <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Check B -->
+      <section class="module-screen" data-screen="check-b" aria-labelledby="check-b-title" hidden>
+        <p class="screen-step">06 — Check / Topic B</p>
+        <h2 id="check-b-title">Which Topic B ideas <em>were in your attempt?</em></h2>
+        <p class="screen-intro">Now check your retrieval attempt against Topic B. Remember you were retrieving both topics together — anything about Topic B counts.</p>
+
+        <blockquote class="attempt-copy">
+          <span>Your retrieval attempt</span>
+          <p data-first-answer-copy-b></p>
+        </blockquote>
+
+        <fieldset class="checklist" data-ideas-checklist-b data-check-group="idea-check-b">
+          <legend class="visually-hidden">Topic B ideas included in your retrieval attempt</legend>
+        </fieldset>
+
+        <div class="check-result" data-check-result-b>
+          <strong><span data-check-count-b>0</span> of <span data-ideas-total-b>0</span> ideas found</strong>
+          <p>Finding a gap is useful feedback — not a failure.</p>
+        </div>
+
+        <button class="module-button module-button--primary" type="button" data-action="to-fix-b">Fix Topic B gaps <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Fix B -->
+      <section class="module-screen" data-screen="fix-b" aria-labelledby="fix-b-title" hidden>
+        <p class="screen-step">07 — Fix / Topic B</p>
+        <h2 id="fix-b-title">Repair what was <em>missing from Topic B.</em></h2>
+        <p class="screen-intro">The Topic B ideas you missed are shown below. Write a brief correction in your own words before planning your returns.</p>
+
+        <div class="gap-list" data-gap-list-b></div>
+
+        <label class="answer-field">
+          <span>My Topic B correction</span>
+          <textarea rows="5" data-correction-b placeholder="The Topic B ideas I need to add are…"></textarea>
+        </label>
+
+        <p class="validation-message" data-fix-b-error hidden>Add a brief correction before you finish.</p>
+        <button class="module-button module-button--primary" type="button" data-action="to-plan">Plan when to return <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Plan -->
+      <section class="module-screen" data-screen="plan" aria-labelledby="plan-title" hidden>
+        <p class="screen-step">08 — Plan</p>
+        <h2 id="plan-title">Space out <em>your returns.</em></h2>
+        <p class="screen-intro">Retrieving each topic again after a gap builds stronger memory than re-reading it now. Choose a realistic time for each topic — they can be different.</p>
+
+        <div class="plan-context">
+          <p><strong>Why the gap matters:</strong> when partial forgetting happens before you retrieve again, your brain has to work harder. That extra effort strengthens the memory trace. Struggling slightly on the next attempt is a good sign, not a failure.</p>
+        </div>
+
+        <div class="plan-dual">
+          <fieldset class="return-options">
+            <legend data-plan-legend-a>When will you return to Topic A?</legend>
+            <label><input type="radio" name="return-time-a" value="tonight"> <span><strong>Tonight</strong><small>Good if this felt very difficult</small></span></label>
+            <label><input type="radio" name="return-time-a" value="tomorrow"> <span><strong>Tomorrow</strong><small>Good if ideas were patchy</small></span></label>
+            <label><input type="radio" name="return-time-a" value="three-days"> <span><strong>In 3 days</strong><small>A useful default</small></span></label>
+            <label><input type="radio" name="return-time-a" value="one-week"> <span><strong>In 1 week</strong><small>Good if recall felt strong</small></span></label>
+            <label><input type="radio" name="return-time-a" value="two-weeks"> <span><strong>In 2 weeks</strong><small>Good if you got everything</small></span></label>
+          </fieldset>
+
+          <fieldset class="return-options">
+            <legend data-plan-legend-b>When will you return to Topic B?</legend>
+            <label><input type="radio" name="return-time-b" value="tonight"> <span><strong>Tonight</strong><small>Good if this felt very difficult</small></span></label>
+            <label><input type="radio" name="return-time-b" value="tomorrow"> <span><strong>Tomorrow</strong><small>Good if ideas were patchy</small></span></label>
+            <label><input type="radio" name="return-time-b" value="three-days"> <span><strong>In 3 days</strong><small>A useful default</small></span></label>
+            <label><input type="radio" name="return-time-b" value="one-week"> <span><strong>In 1 week</strong><small>Good if recall felt strong</small></span></label>
+            <label><input type="radio" name="return-time-b" value="two-weeks"> <span><strong>In 2 weeks</strong><small>Good if you got everything</small></span></label>
+          </fieldset>
+        </div>
+
+        <p class="validation-message" data-return-error hidden>Choose a return time for both topics before you finish.</p>
+        <button class="module-button module-button--primary" type="button" data-action="finish">Finish the session <span aria-hidden="true">→</span></button>
+      </section>
+
+      <!-- Complete -->
+      <section class="module-screen module-complete" data-screen="complete" aria-labelledby="complete-title" hidden>
+        <p class="experiment-number">Session complete</p>
+        <div class="complete-mark" aria-hidden="true">✓</div>
+        <h2 id="complete-title">You retrieved across two topics.</h2>
+        <p class="module-lead">You studied two subjects, pulled them back from memory in a single attempt, checked accurately, and fixed the gaps in each. Mixing subjects during retrieval makes both more durable than working through them separately.</p>
+
+        <dl class="experiment-summary experiment-summary--two-topic">
+          <div><dt>Topic A</dt><dd><span data-final-topic-a>—</span></dd></div>
+          <div><dt>Ideas recalled</dt><dd><span data-final-score-a>—</span></dd></div>
+          <div><dt>Return A</dt><dd><span data-final-return-a>—</span></dd></div>
+          <div><dt>Topic B</dt><dd><span data-final-topic-b>—</span></dd></div>
+          <div><dt>Ideas recalled</dt><dd><span data-final-score-b>—</span></dd></div>
+          <div><dt>Return B</dt><dd><span data-final-return-b>—</span></dd></div>
+        </dl>
+
+        <div class="takeaway">
+          <p><strong>The method to take with you</strong></p>
+          <p>Close the book. Write from memory — both topics at once. Check honestly per topic. Fix the gaps. Return after a gap and do it again.</p>
+        </div>
+
+        <div class="complete-actions">
+          <button class="module-button module-button--primary" type="button" data-action="restart">Try two more topics</button>
+          <a class="module-button module-button--secondary" href="plan.html">Plan your revision week <span aria-hidden="true">→</span></a>
+          <a class="module-button module-button--secondary" href="index.html">Back to Revision Lab</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

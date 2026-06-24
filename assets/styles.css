@@ -2199,4 +2199,68 @@ details.evidence-ref[open] > summary::after { content: " ↑"; }
   .module-progress--seven {
     grid-template-columns: repeat(7, 1fr);
   }
+
+  .module-progress--eight {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* ——— 30-minute session ——— */
+
+.topic-block {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+}
+
+.topic-block + .topic-block { margin-top: 1.5rem; }
+
+.topic-block__title {
+  margin: 0 0 1.2rem;
+  color: var(--burgundy-deep);
+  font-family: var(--utility);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.study-dual {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 900px) {
+  .study-dual {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .study-dual .study-sheet {
+    max-width: 100%;
+  }
+}
+
+.plan-dual {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 900px) {
+  .plan-dual {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.experiment-summary--two-topic {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.experiment-summary--two-topic div:nth-child(3n+1) {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.experiment-summary--two-topic div:nth-child(n+4) {
+  border-top: 1px solid var(--line);
 }

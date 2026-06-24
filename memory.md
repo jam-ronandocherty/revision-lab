@@ -1,6 +1,6 @@
 # Revision Lab — Project Memory
 
-Last updated: 24 June 2026
+Last updated: 25 June 2026
 
 ## Purpose
 
@@ -188,17 +188,21 @@ The core first-release journey is: **learn one effective method, use it in a tim
 - Cloudflare Pages is connected and the production site is live at `https://revision-lab.pages.dev`.
 - All five first-release sections are now built and linked:
   - **Home** (`index.html`) — hero, lab card, project teaser.
-  - **Start a session** (`start.html`) — two-step chooser: time selection (5 / 15 / 30 min cards; 15 and 30 are "coming soon") then subject and task-type focus-setting before routing to the module.
+  - **Start a session** (`start.html`) — two-step chooser: time selection (5 / 15 / 30 min cards, all ready) then subject and task-type focus-setting before routing to the module.
   - **Learn the method** (`module.html`) — the complete **Can you remember it without looking?** retrieval-practice module. Uses a neutral science example to walk pupils through Study → Retrieve → Check → Fix → Retry → Return. Responses stay on-page only; honest self-assessment rather than automated marking.
   - **Plan your week** (`plan.html`) — interactive weekly revision planner; printable.
   - **For families** (`families.html`) — dual-audience evidence design with practical guidance.
 - Homepage primary CTA and lab card both route through `start.html` as the entry point to the session journey.
+- All three session lengths are now live:
+  - **5-minute** (`module.html`) — fixed retrieval experiment with a preset science example.
+  - **15-minute** (`module-15.html`) — bring-your-own retrieval: pupil enters 3–5 key ideas, studies, retrieves, checks, fixes, retries and plans the return.
+  - **30-minute** (`module-30.html`) — two-topic interleaved retrieval: pupil enters ideas for two subjects, studies both, retrieves both from memory together, then checks and fixes per topic before scheduling returns for each.
 
 ## Immediate next steps
 
 1. Test the full journey (homepage → start → module → plan) with pupils, families and staff.
-2. Build the 15-minute session when there is enough content to fill it.
-3. Expand the content library with a second learning module once the first has been tested.
+2. Expand the content library with a second learning module once the first has been tested.
+3. Consider a second complete module (e.g. spaced practice or error correction) to grow the Learn the method section.
 
 ## Safeguards
 

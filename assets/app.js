@@ -448,7 +448,7 @@ if (chooser) {
       const subject = chooser.querySelector('#subject-input')?.value.trim() || '';
       sessionStorage.setItem('rl-subject', subject);
       sessionStorage.setItem('rl-time', chosenTime);
-      const destinations = { '5': 'module.html', '15': 'module-15.html' };
+      const destinations = { '5': 'module.html', '15': 'module-15.html', '30': 'module-30.html' };
       window.location.href = destinations[chosenTime] || 'module.html';
     }
   });
